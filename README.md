@@ -69,8 +69,9 @@ A secure and reliable FastAPI application for handling file transfers between re
    ```
    Alternatively, you can use Uvicorn directly:
    ```
-   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   uvicorn main:app --host 0.0.0.0 --port 8005 --reload
    ```
+   One could specify some other port for the port flag. The flags reload, port and host aren't mandatory.
 
 ## API Endpoints
 
