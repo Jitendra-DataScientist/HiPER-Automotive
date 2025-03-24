@@ -77,7 +77,7 @@ A secure and reliable FastAPI application for handling file transfers between re
 
 ### Authentication
 
-- **POST /api/token**: Authenticate a device and receive a JWT token
+- **POST /auth/token**: Authenticate a device and receive a JWT token
 
 ### File Operations
 
