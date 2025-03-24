@@ -61,6 +61,7 @@ A secure and reliable FastAPI application for handling file transfers between re
 3. Create an `.env` file in the root directory with the following variables:
    ```
    SECRET_KEY=your_secret_key  # Use a strong secret key for JWT token generation
+   ACCESS_TOKEN_EXPIRE_MINUTES=30  # the token generated from auth/token endpoint would expire in 30 minutes
    ```
 4. Run the application:
    ```
