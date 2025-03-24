@@ -1,0 +1,4 @@
+.env
+isolate/
+hiper.db
+test.db
