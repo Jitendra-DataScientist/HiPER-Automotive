@@ -106,6 +106,13 @@ File chunks must include a custom binary header with the following format:
 
 6. **Range Requests**: Support for HTTP Range header enables efficient partial downloads of large files.
 
+## Security Considerations
+
+- All endpoints require JWT authentication
+- File chunk checksums ensure data integrity
+- Background processes prevent resource exhaustion
+- Proper error handling prevents information leakage
+
 ## Future Enhancements
 
 1. **Cloud Storage Integration**: The design allows for future integration with cloud storage solutions by extending the FileService class.
@@ -117,10 +124,3 @@ File chunks must include a custom binary header with the following format:
 4. **Rate Limiting**: Implement rate limiting to prevent abuse of the API.
 
 5. **Multi-tenancy**: Extend the authentication system to support multiple tenants or organizations.
-
-## Security Considerations
-
-- All endpoints require JWT authentication
-- File chunk checksums ensure data integrity
-- Background processes prevent resource exhaustion
-- Proper error handling prevents information leakage
