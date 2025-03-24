@@ -59,6 +59,7 @@ A secure and reliable FastAPI application for handling file transfers between re
 3. Create an `.env` file in the root directory with the following variables:
    ```
    SECRET_KEY=your_secret_key  # Use a strong secret key for JWT token generation
+   ACCESS_TOKEN_EXPIRE_MINUTES=30  # the token generated from auth/token endpoint would expire in 30 minutes
    ```
 4. Run the application:
    ```
@@ -66,14 +67,15 @@ A secure and reliable FastAPI application for handling file transfers between re
    ```
    Alternatively, you can use Uvicorn directly:
    ```
-   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   uvicorn main:app --host 0.0.0.0 --port 8005 --reload
    ```
+   One could specify some other port for the port flag. The flags reload, port and host aren't mandatory.
 
 ## API Endpoints
 
 ### Authentication
 
-- **POST /api/token**: Authenticate a device and receive a JWT token
+- **POST /auth/token**: Authenticate a device and receive a JWT token
 
 ### File Operations
 
@@ -104,6 +106,13 @@ File chunks must include a custom binary header with the following format:
 
 6. **Range Requests**: Support for HTTP Range header enables efficient partial downloads of large files.
 
+## Security Considerations
+
+- All endpoints require JWT authentication
+- File chunk checksums ensure data integrity
+- Background processes prevent resource exhaustion
+- Proper error handling prevents information leakage
+
 ## Future Enhancements
 
 1. **Cloud Storage Integration**: The design allows for future integration with cloud storage solutions by extending the FileService class.
@@ -115,10 +124,3 @@ File chunks must include a custom binary header with the following format:
 4. **Rate Limiting**: Implement rate limiting to prevent abuse of the API.
 
 5. **Multi-tenancy**: Extend the authentication system to support multiple tenants or organizations.
-
-## Security Considerations
-
-- All endpoints require JWT authentication
-- File chunk checksums ensure data integrity
-- Background processes prevent resource exhaustion
-- Proper error handling prevents information leakage
