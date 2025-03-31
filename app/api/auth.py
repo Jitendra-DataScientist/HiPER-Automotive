@@ -7,7 +7,7 @@ from app.core.config import settings
 router = APIRouter()
 
 # This would be replaced with your device authentication system
-# For this example, we're using a simple dictionary
+# For this assignment, I am using a simple dictionary (ideally it should come from the environment)
 device_credentials = {
     "device1": "password1",
     "device2": "password2",
